@@ -7,6 +7,7 @@
     xmlns:aop="http://www.springframework.org/schema/aop"
     xmlns:tx="http://www.springframework.org/schema/tx"
     xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         				http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
         				http://www.springframework.org/schema/context
