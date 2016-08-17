@@ -21,16 +21,17 @@
         				http://www.springframework.org/schema/mvc
         				http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
         				
-     <mvc:annotation-driven/>
-	  
-	 <!-- 开启注解 -->
-	 <context:component-scan base-package="controller"/>
-	 <context:annotation-config />
-	 
-	 <!-- 配置视图解析器 -->
-	 <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" 
-	 p:prefix="/WEB-INF/jsp/"
-	 p:suffix=".jsp" />
+	<!--  SessionFactory -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" 
+		p:dataSource-ref="dataSource"
+		p:typeAliasesPackage="pojo"
+		p:configLocation="classpath:mybatis/mybatis-config.xml"
+		p:mapperLocations="classpath:mybatis/mapper/*.xml" />
+	
+	<!-- 包扫描配置mapper -->
+	 <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
+	 		p:sqlSessionFactoryBeanName="sqlSessionFactory" 
+	 		p:basePackage="mapper"/>
           
 
 </beans>
